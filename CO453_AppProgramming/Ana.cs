@@ -11,8 +11,21 @@ namespace CO453_AppProgramming
     /// 
     /// This class is just used to try things out!
     /// </summary>
-    public class Ana
+    public static class Ana
     {
+        private static string name;
+
+        /// <summary>
+        /// Thus initialises the Ana Class and is used
+        /// for creating object
+        /// </summary>
+        //public Ana()
+       //{
+            //Above is a constructor
+            //name = "Ana";
+            //initialising name stored inside the class looks like this:
+
+       //}
         /// <summary>
         /// This method writes out a title for an application
         /// </summary>
