@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CO453_AppProgramming.Unit4
 {
     /// <summary>
-    /// 
+    /// This class will test the DistanceConverter class
     /// </summary>
     class TestDistanceConverter
     {
@@ -28,7 +24,9 @@ namespace CO453_AppProgramming.Unit4
         }
 
         /// <summary>
-        /// 
+        /// This method will ask the user to enter the number of feet
+        /// and it will convert that value to miles and display the
+        /// result to the user
         /// </summary>
         public static void TestFeetToMiles()
         {

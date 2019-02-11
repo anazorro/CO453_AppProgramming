@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4E8F9361-38BA-4D84-AB11-1106F2846B96}</ProjectGuid>
+    <ProjectGuid>{86062DBF-91AC-461B-8315-DA65EBD84BF9}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>CO453_AppProgramming</RootNamespace>
-    <AssemblyName>CO453_AppProgramming</AssemblyName>
+    <RootNamespace>Independent_Study</RootNamespace>
+    <AssemblyName>Independent_Study</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -31,9 +31,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject>CO453_AppProgramming.Program</StartupObject>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -45,21 +42,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Ana.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Unit4\Book.cs" />
-    <Compile Include="Unit4\DistanceConverter.cs" />
-    <Compile Include="Unit4\TestBook.cs" />
-    <Compile Include="Unit4\TestDistanceConverter.cs" />
-    <Compile Include="Unit5\Car.cs" />
-    <Compile Include="Unit5\MP3TopTen.cs" />
-    <Compile Include="Unit5\Tournament.cs" />
-    <Compile Include="UserLib.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Project_Unit\" />
+    <Folder Include="Unit4\" />
+    <Folder Include="Unit5\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

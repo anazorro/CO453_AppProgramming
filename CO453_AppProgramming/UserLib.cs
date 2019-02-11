@@ -91,5 +91,47 @@ namespace CO453_AppProgramming
 
             return input;
         }
+
+        /// <summary>
+        /// This method displays a menu of choices and the user
+        /// can select one by entering a valid number 
+        /// </summary>
+        public static int GetChoice(string[] choices)
+        {
+            int choiceNo = 0;
+            int noChoices = choices.Count();
+            bool validChoice = false;
+
+            while (!validChoice)
+            {
+                choiceNo = 0;
+                Console.WriteLine();
+
+                foreach (string choice in choices)
+                {
+                    choiceNo++;
+                    Console.WriteLine("   " + choiceNo.ToString() + ": " + choice);
+                }
+
+                Console.WriteLine();
+                Console.Write("Select one of the above (1 - " + noChoices + ") >");
+
+                string value = Console.ReadLine();
+                choiceNo = Convert.ToInt32(value);
+
+                if (choiceNo < 1 || choiceNo > noChoices)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine(choiceNo.ToString() + " is not a valid choice!");
+                    Console.WriteLine();
+                }
+                else
+                {
+                    validChoice = true;
+                }
+            }
+
+            return choiceNo;
+        }
     }
 }

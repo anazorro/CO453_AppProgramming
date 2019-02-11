@@ -8,6 +8,9 @@ namespace CO453_AppProgramming.Unit4
 {
     class TestBook
     {
+        /// <summary>
+        /// This class will test the Book class
+        /// </summary>
         public static void Test()
         {
             ///new sintax to initialise values of the properties
