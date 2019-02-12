@@ -20,22 +20,23 @@ namespace CO453_AppProgramming
         public const string STONE = "STONE";
         public const string PAPER = "PAPER";
 
-        private string computerChoice;
-        private string playerChoice;
-        private string playerName = "Ana";
+        public static string ComputerChoice { get; set; }
 
-        private int computerScore = 0;
-        private int playerScore = 0;
+        public static string PlayerChoice { get; set; }
 
-        public const int MAXN_TURNS = 3; //how many times the game will run before it finishes
+        public static string Winner { get; set; }
 
-        private Random randomGenerator;
+        public static int ComputerScore = 0;
+        public static int PlayerScore = 0;
 
-        static void Main()
-        {
-            Game myGame = new Game();  // create new Game object
-            myGame.Play();             // call its play method
-        }
+        
+        private static Random randomGenerator;
+
+        //static void Main()
+        //{
+        //    Game myGame = new Game();  // create new Game object
+        //    myGame.Play();             // call its play method
+        //}
 
         /// <summary>
         /// *******************************************************
@@ -54,21 +55,33 @@ namespace CO453_AppProgramming
         /// </summary>
         public void Play()
         {
-            for (int turn = 1; turn <= MAXN_TURNS; turn++)
+            
+        }
+
+        /// <summary>
+        /// *******************************************************
+        /// 
+        /// *******************************************************
+        /// </summary>
+        public static void WorkOutResult()
+        {
+            if (PlayerChoice == ComputerChoice)
             {
-                SetupScreen();
-                Start();
-
-                GetPlayerChoice();
-                GetComputerChoice();
-
-                DrawChoice(Players.COMPUTER);
-                DrawChoice(Players.PLAYER);
-
-                ShowChoices();
-                ShowResult();
-
-                Console.ReadKey();
+                Winner = "Draw";
+            }
+            else if ((PlayerChoice == STONE && ComputerChoice == PAPER) ||
+            (PlayerChoice == SCISSORS && ComputerChoice == STONE) ||
+            (PlayerChoice == PAPER && ComputerChoice == SCISSORS))
+            {
+                ComputerScore = ComputerScore + 1;
+                Winner = "Computer";
+            }
+            else if ((PlayerChoice == PAPER && ComputerChoice == STONE) ||
+                (PlayerChoice == STONE && ComputerChoice == SCISSORS) ||
+                (PlayerChoice == SCISSORS && ComputerChoice == PAPER))
+            {
+                PlayerScore = PlayerScore + 1;
+                Winner = "Player";
             }
         }
 
@@ -77,67 +90,21 @@ namespace CO453_AppProgramming
         /// 
         /// *******************************************************
         /// </summary>
-        private void SetupScreen()
-        {
-            Console.Title = " The Great Scissors-Paper-Stone Game";
-
-            Console.SetWindowSize(100, 36);
-            Console.SetBufferSize(100, 36);
-
-            Console.BackgroundColor = ConsoleColor.Blue;
-            Console.ForegroundColor = ConsoleColor.Black;
-
-            Console.Clear();  // clear screen in chosen colour
-        }
-
-        /// <summary>
-        /// *******************************************************
-        /// 
-        /// *******************************************************
-        /// </summary>
-        private void Start()
-        {
-            Console.WriteLine("==================================");
-            Console.WriteLine("Play the Scissors Paper Stone Game");
-            Console.WriteLine("==================================");
-            Console.WriteLine();
-            //playerName = UserLib.GetString("Please enter your name > ");
-        }
-
-        /// <summary>
-        /// *******************************************************
-        /// 
-        /// *******************************************************
-        /// </summary>
-        private void GetPlayerChoice()
-        {
-            Console.WriteLine(playerName + " what is your choice ?");
-            Console.Write("Scissors Paper or Stone : ");
-
-            playerChoice = Console.ReadLine();
-            playerChoice = playerChoice.ToUpper();
-        }
-
-        /// <summary>
-        /// *******************************************************
-        /// 
-        /// *******************************************************
-        /// </summary>
-        private void GetComputerChoice()
+        public static void GetComputerChoice()
         {
             int choice;
             choice = randomGenerator.Next(3);  // pick a random number (0, 1 or 2)
             if (choice == 0)
             {
-                computerChoice = SCISSORS;
+                ComputerChoice = SCISSORS;
             }
             else if (choice == 1)
             {
-                computerChoice = PAPER;
+                ComputerChoice = PAPER;
             }
             else if (choice == 2)
             {
-                computerChoice = STONE;
+                ComputerChoice = STONE;
             }
         }
 
@@ -146,46 +113,7 @@ namespace CO453_AppProgramming
         /// 
         /// *******************************************************
         /// </summary>
-        private void ShowChoices()
-        {
-            Console.WriteLine("\n\t You picked " + playerChoice);
-            Console.WriteLine("\tThe computer choice is " + computerChoice);
-        }
-
-        /// <summary>
-        /// *******************************************************
-        /// 
-        /// *******************************************************
-        /// </summary>
-        private void ShowResult()
-        {
-            if (playerChoice == computerChoice)
-            {
-                Console.WriteLine("\n\tA DRAW!!");
-            }
-            else if ((playerChoice == STONE && computerChoice == PAPER) ||
-            (playerChoice == SCISSORS && computerChoice == STONE) ||
-            (playerChoice == PAPER && computerChoice == SCISSORS))
-            {
-                computerScore = computerScore + 1;
-            }
-            else if ((playerChoice == PAPER && computerChoice == STONE) ||
-                (playerChoice == STONE && computerChoice == SCISSORS) ||
-                (playerChoice == SCISSORS && computerChoice == PAPER))
-            {
-                playerScore = playerScore + 1;
-            }
-
-            Console.WriteLine("\n\nThe Computer has won " + computerScore + " times");
-            Console.WriteLine("\n\n" + playerName + " has won " + playerScore + " times");
-        }
-
-        /// <summary>
-        /// *******************************************************
-        /// 
-        /// *******************************************************
-        /// </summary>
-        private void DrawChoice(Players player)
+        public static void DrawChoice(Players player)
         {
             string choice;
             int x;
@@ -193,12 +121,12 @@ namespace CO453_AppProgramming
             if (player == Players.COMPUTER)
             {
                 x = 50;
-                choice = computerChoice;
+                choice = ComputerChoice;
             }
 
             else
             {
-                choice = playerChoice;
+                choice = PlayerChoice;
                 x = 5;
             }
 

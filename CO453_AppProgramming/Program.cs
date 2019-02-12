@@ -1,6 +1,7 @@
 using System;
 using CO453_AppProgramming.Unit4;
 using CO453_AppProgramming.Unit5;
+using CO453_AppProgramming.SPS;
 
 namespace CO453_AppProgramming
 {
@@ -15,7 +16,7 @@ namespace CO453_AppProgramming
         static void Main(string[] args)
         {
 
-            TestBook.Test();
+            GameInterface.RunGame();
             
             Console.ReadKey();
         }
