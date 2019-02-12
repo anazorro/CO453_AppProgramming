@@ -16,7 +16,7 @@ namespace CO453_AppProgramming
         {
 
             TestBook.Test();
-            //Could be called scoreList but plural is best for arrays
+            
             Console.ReadKey();
         }
 

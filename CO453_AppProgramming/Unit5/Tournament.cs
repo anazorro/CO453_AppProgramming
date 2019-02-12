@@ -10,14 +10,15 @@ namespace CO453_AppProgramming.Unit5
     {
         //Sets a constant size
         public const int MAXN_SCORES = 3;
-        
+
         //Defines scores as a private integer array
         //and defines names as a private string array
+        //Could be called scoreList but plural is best for arrays
         private int[] scores = new int[MAXN_SCORES];
         private string[] names = new string[MAXN_SCORES];
 
         /// <summary>
-        /// This is the main method taht can be used to run an instance
+        /// This is the main method that can be used to run an instance
         /// of this Tournament class
         /// </summary>
         public static void Main()

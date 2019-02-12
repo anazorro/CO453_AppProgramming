@@ -1,17 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CO453_AppProgramming.Unit5
 {
     class MP3TopTen
     {
+        //Sets a constant size
         public const int MAXN_SONGS = 10;
 
+        //Defines votes as a private integer array and uses the constant
         private int[] votes = new int[10];
 
+        //Defines songs as a private string array
         private string[] songs = new string[]
             {
                 "Sweet but Psycho",
@@ -26,6 +26,10 @@ namespace CO453_AppProgramming.Unit5
                 "Giant"
             };
 
+        /// <summary>
+        /// This is the main method that can be used to run an instance
+        /// of this MP3TopTen class
+        /// </summary>
         public static void Main()
         {
             MP3TopTen chart = new MP3TopTen();
@@ -36,6 +40,7 @@ namespace CO453_AppProgramming.Unit5
             Console.ReadKey();
         }
 
+        //This method shows how many votes each song has
         public void Show()
         {
             Console.Clear();
