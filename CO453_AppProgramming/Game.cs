@@ -10,90 +10,74 @@ namespace CO453_AppProgramming
     }
 
     /// <summary>
-    /// This class plays ...
+    /// This class plays The Scissors-Paper-Stone Game
     /// Author: Ana Zorro, ID: 21903356
     /// Started: 12/02/2019
+    /// Last Update:
     /// </summary>
-    class Game
+    public class Game
     {
         public const string SCISSORS = "SCISSORS";
         public const string STONE = "STONE";
         public const string PAPER = "PAPER";
 
+        public static string PlayerName { get; set; }
+        public static string ComputerName { get; set; }
         public static string ComputerChoice { get; set; }
-
         public static string PlayerChoice { get; set; }
-
         public static string Winner { get; set; }
 
-        public static int ComputerScore = 0;
-        public static int PlayerScore = 0;
+        public static int PlayerScore { get; set; }
+        public static int ComputerScore { get; set; }
 
-        
-        private static Random randomGenerator;
+        private static Random randomGenerator = new Random();
 
         //static void Main()
         //{
-        //    Game myGame = new Game();  // create new Game object
-        //    myGame.Play();             // call its play method
+        //    Game myGame = new Game();
+
+        //    myGame.Play();
         //}
 
         /// <summary>
         /// *******************************************************
-        /// Create a new random number generator object
+        /// This method will Start the Game
         /// *******************************************************
         /// </summary>
-        public Game()
+        public static void Start()
         {
-            randomGenerator = new Random();
+            PlayerScore = 0;
+            ComputerScore = 0;
+
+            PlayerName = "Ana";
+            ComputerName = "The Computer";
         }
 
         /// <summary>
         /// *******************************************************
-        /// 
+        /// This method will End the Game
         /// *******************************************************
         /// </summary>
-        public void Play()
+        public static void End()
         {
-            
+            if (PlayerScore > ComputerScore)
+                Winner = PlayerName;
+            else if (PlayerScore < ComputerScore)
+                Winner = ComputerName;
+            else
+                Winner = "No Winner";
         }
 
         /// <summary>
         /// *******************************************************
-        /// 
-        /// *******************************************************
-        /// </summary>
-        public static void WorkOutResult()
-        {
-            if (PlayerChoice == ComputerChoice)
-            {
-                Winner = "Draw";
-            }
-            else if ((PlayerChoice == STONE && ComputerChoice == PAPER) ||
-            (PlayerChoice == SCISSORS && ComputerChoice == STONE) ||
-            (PlayerChoice == PAPER && ComputerChoice == SCISSORS))
-            {
-                ComputerScore = ComputerScore + 1;
-                Winner = "Computer";
-            }
-            else if ((PlayerChoice == PAPER && ComputerChoice == STONE) ||
-                (PlayerChoice == STONE && ComputerChoice == SCISSORS) ||
-                (PlayerChoice == SCISSORS && ComputerChoice == PAPER))
-            {
-                PlayerScore = PlayerScore + 1;
-                Winner = "Player";
-            }
-        }
-
-        /// <summary>
-        /// *******************************************************
-        /// 
+        /// This method will Get the Computer Choice
         /// *******************************************************
         /// </summary>
         public static void GetComputerChoice()
         {
             int choice;
-            choice = randomGenerator.Next(3);  // pick a random number (0, 1 or 2)
+            choice = randomGenerator.Next(3);
+
             if (choice == 0)
             {
                 ComputerChoice = SCISSORS;
@@ -108,39 +92,31 @@ namespace CO453_AppProgramming
             }
         }
 
+
         /// <summary>
         /// *******************************************************
-        /// 
+        /// This method will Work out the Winner
         /// *******************************************************
         /// </summary>
-        public static void DrawChoice(Players player)
+        public static void WorkoutWinner()
         {
-            string choice;
-            int x;
-
-            if (player == Players.COMPUTER)
+            if (PlayerChoice == ComputerChoice)
             {
-                x = 50;
-                choice = ComputerChoice;
+                Winner = "No Winner";
             }
-
-            else
+            else if ((PlayerChoice == STONE && ComputerChoice == PAPER) ||
+                    (PlayerChoice == SCISSORS && ComputerChoice == STONE) ||
+                    (PlayerChoice == PAPER && ComputerChoice == SCISSORS))
             {
-                choice = PlayerChoice;
-                x = 5;
+                Winner = ComputerName;
+                ComputerScore++;
             }
-
-            if (choice == SCISSORS)
+            else if ((PlayerChoice == STONE && ComputerChoice == SCISSORS) ||
+                    (PlayerChoice == SCISSORS && ComputerChoice == PAPER) ||
+                    (PlayerChoice == PAPER && ComputerChoice == STONE))
             {
-                Images.DrawScissors(x, 7);
-            }
-            else if (choice == PAPER)
-            {
-                Images.DrawPaper(x, 7);
-            }
-            else if (choice == STONE)
-            {
-                Images.DrawStone(x, 7);
+                Winner = PlayerName;
+                PlayerScore++;
             }
         }
     }

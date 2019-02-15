@@ -114,7 +114,8 @@ namespace CO453_AppProgramming
                 }
 
                 Console.WriteLine();
-                Console.Write("Select one of the above (1 - " + noChoices + ") >");
+                Console.Write("Select one of" +
+                    " the above (1 - " + noChoices + ") >");
 
                 string value = Console.ReadLine();
                 choiceNo = Convert.ToInt32(value);

@@ -9,6 +9,7 @@ namespace AppTesting
         [TestMethod]
         public void TestMethod1()
         {
+
         }
     }
 }

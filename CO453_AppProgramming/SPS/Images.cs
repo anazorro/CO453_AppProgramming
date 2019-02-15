@@ -1,27 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CO453_AppProgramming.SPS
 {
     /// <summary>
-    /// This class will draw the s...
-    /// Author:
-    /// Started:
+    /// This class will draw the chosen options
+    /// Author: Ana Zorro, ID: 21903356
+    /// Started: 12/02/2019
     /// Last Update:
     /// </summary>
     class Images
     {
         /// <summary>
         /// *******************************************************
-        /// This will draw an image of scissors on the console
+        /// This method will draw an image of Scissors on the console
         /// *******************************************************
         /// </summary>
         public static void DrawScissors(int x, int y)
         {
-            Console.SetCursorPosition(x, y++);   // set start position then increment y to move down
+            Console.SetCursorPosition(x, y++);   //Set start position then increment y to move down
             Console.Write("     \\            /");
             Console.SetCursorPosition(x, y++);
             Console.Write("      \\          /");
@@ -48,12 +44,12 @@ namespace CO453_AppProgramming.SPS
 
         /// <summary>
         /// *******************************************************
-        /// This will draw an image of a stone on the console
+        /// This method will draw an image of a Stone on the console
         /// *******************************************************
         /// </summary>
         public static void DrawStone(int x, int y)
         {
-            Console.SetCursorPosition(x, y++);   // set start position then increment y to move down
+            Console.SetCursorPosition(x, y++);   //Set start position then increment y to move down
             Console.Write("                 ___---___     ");
             Console.SetCursorPosition(x, y++);
             Console.Write("              .--         --.    ");
@@ -84,12 +80,12 @@ namespace CO453_AppProgramming.SPS
 
         /// <summary>
         /// *******************************************************
-        /// This will draw an image of paper on the console
+        /// This method will draw an image of Paper on the console
         /// *******************************************************
         /// </summary>
         public static void DrawPaper(int x, int y)
         {
-            Console.SetCursorPosition(x, y++);    // set start position then increment y to move down
+            Console.SetCursorPosition(x, y++);    //Set start position then increment y to move down
             Console.Write("      .--.------------------.");
             Console.SetCursorPosition(x, y++);
             Console.Write("     /      \\  \\ \\ \\ \\ \\ \\ \\ \\");
@@ -120,7 +116,7 @@ namespace CO453_AppProgramming.SPS
 
         /// <summary>
         /// *******************************************************
-        /// This will draw an image of a smile on the console
+        /// This method will draw an image of a Smile on the console
         /// *******************************************************
         /// </summary>
         public static void DrawSmile()
@@ -139,7 +135,7 @@ namespace CO453_AppProgramming.SPS
 
         /// <summary>
         /// *******************************************************
-        /// 
+        /// This method will draw an image of ThumbsUp on the console
         /// *******************************************************
         /// </summary>
         public static void DrawThumbsUp()
@@ -158,7 +154,7 @@ namespace CO453_AppProgramming.SPS
 
         /// <summary>
         /// *******************************************************
-        /// 
+        /// This method will draw an image of ThumbsDown on the console
         /// *******************************************************
         /// </summary>
         public static void DrawThumbsDown()
